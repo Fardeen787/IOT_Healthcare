@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript - read JSON from URL</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="mypanel"></div>
+
+    <script>
+    $.getJSON('https://api.thingspeak.com/channels/1720899/feeds/last.json?api_key=PAKMQ87MES1124SM&results=2', function(data) {
+
+        var text = `Temperature: ${data.field1}<br>
+                    Oxygen: ${data.field2}<br>
+                    BPM: ${data.field3}<br>`
+
+
+        $(".mypanel").html(text);
+    });
+    </script>
+
+</body>
+</html>
